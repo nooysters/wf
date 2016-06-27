@@ -1,0 +1,9 @@
+.foo {
+  border: solid 1px red;
+}
+
+.container {
+  composes: foo;
+  content: 'some-react-module CSS';
+  background-color: red;
+}

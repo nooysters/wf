@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flo</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+hello from the layout
+<%= yield %>
+
+<%= javascript_include_tag 'application' %>
+</body>
+
+</html>
