@@ -7,7 +7,7 @@ class Commands::CreateTicket
 
   def call()
     @ticket = Ticket.new( @ticket_params )
-    @form = Form.find_or_create!(form_params)
+    @form = Form.find_or_create_by(@form_params)
 
     @ticket.form = @form
 
@@ -20,11 +20,12 @@ class Commands::CreateTicket
 
   private
 
-  def initialize_data(fields)
+  def initialize_data()
     @form.fields.each do |field|
-      Field.datum.create do |f|
-         f.field_id: field.id,
-         f.fieldable: @ticket
+      FieldDatum.create do |f|
+         f.field = field
+         f.fieldable_id = @ticket.id
+         f.fieldable_type = @ticket.class.name
         # f.value: field.default_value
       end
     end

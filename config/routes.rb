@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   jsonapi_resources :tickets
   jsonapi_resources :forms
+  jsonapi_resources :fields
   jsonapi_resources :field_data
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
